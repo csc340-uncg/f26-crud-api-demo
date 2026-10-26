@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Plant image unavailable</title>
+  <rect width="640" height="420" fill="#eaf2e8"/>
+  <circle cx="320" cy="190" r="118" fill="#d5e6d1"/>
+  <path d="M320 276V157" fill="none" stroke="#527b53" stroke-linecap="round" stroke-width="12"/>
+  <path d="M318 203c-68 1-103-38-99-91 57-3 98 26 99 91Z" fill="#739a6d"/>
+  <path d="M322 170c-1-59 38-93 91-88 3 54-27 88-91 88Z" fill="#89aa7b"/>
+  <path d="m267 269 20 98h66l20-98Z" fill="#bc8865"/>
+  <path d="M275 290h90" stroke="#d5a17a" stroke-linecap="round" stroke-width="8"/>
+</svg>
