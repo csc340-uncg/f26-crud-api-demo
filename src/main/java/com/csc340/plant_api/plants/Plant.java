@@ -30,6 +30,8 @@ public class Plant {
 
     private boolean toxicToPets;
 
+    private String thumbnailUrl;
+
     public Plant() {
     }
 
@@ -75,5 +77,13 @@ public class Plant {
 
     public void setToxicToPets(boolean toxicToPets) {
         this.toxicToPets = toxicToPets;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }

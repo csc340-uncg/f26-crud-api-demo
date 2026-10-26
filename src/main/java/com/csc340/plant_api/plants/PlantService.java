@@ -1,13 +1,21 @@
 package com.csc340.plant_api.plants;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Service
 public class PlantService {
 
     private final PlantRepository repository;
+
+    private static final String UPLOAD_DIR = "src/main/resources/static/thumbnails/";
 
     public PlantService(PlantRepository repository) {
         this.repository = repository;
@@ -58,5 +66,24 @@ public class PlantService {
     public void delete(Long id) {
         findById(id); // throws 404 if missing
         repository.deleteById(id);
+    }
+
+    public void saveThumbnail(Plant plant, MultipartFile file) {
+        // Save the thumbnail file to a location and set the thumbnailUrl in the plant
+        // For simplicity, let's assume we save it to a static directory and set the URL
+        // accordingly
+        String originalFileName = file.getOriginalFilename();
+        try {
+            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+            String newFileName = "plant_" + plant.getId() + "." + fileExtension;
+            Path path = Paths.get(UPLOAD_DIR + newFileName);
+            InputStream inputStream = file.getInputStream();
+            Files.createDirectories(Paths.get(UPLOAD_DIR)); // Ensure the directory exists
+            Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+            plant.setThumbnailUrl( newFileName);
+            repository.save(plant);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
