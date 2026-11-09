@@ -19,6 +19,9 @@
           <a href="/" class="${(active == 'home')?then('active', '')}">Home</a>
           <a href="/about" class="${(active == 'about')?then('active', '')}">About</a>
           <a href="/plants/new" class="${(active == 'new')?then('active', '')}">Add a Plant</a>
+          <#if Session.SPRING_SECURITY_CONTEXT??>
+            <a href="/logout">(${Session.SPRING_SECURITY_CONTEXT.authentication.name}) Sign Out</a>
+          </#if>
         </nav>
       </header>
 

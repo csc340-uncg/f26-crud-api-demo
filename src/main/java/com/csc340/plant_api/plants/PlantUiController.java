@@ -22,7 +22,7 @@ public class PlantUiController {
   }
 
   // ----- Gallery with search -----
-  @GetMapping({ "/", "/plants" })
+  @GetMapping({ "/plants" })
   public String gallery(@RequestParam(required = false) String name,
       @RequestParam(required = false) LightNeeds light,
       Model model) {
